@@ -46,4 +46,18 @@ stages:
       - artifacts/model_dir/ElasticNet.model
 
 
+  evalualte:
+    cmd: python src/stage_04_evalulate.py --config=config/config.yaml --params=params.yaml
+
+    deps:
+      - src/stage_04_evalulate.py
+      - src/utils/all_utils.py
+      - config/config.yaml
+      - artifacts/split_data_dir/test.csv
+      - artifacts/model_dir/ElasticNet.model
+
+    outs:
+      - artifacts/reports_dir/scores.json
+
+
   
